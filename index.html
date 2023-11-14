@@ -74,7 +74,28 @@
     // 🧠 The methods work as one might expect, changing the value of `isOn` to the appropriate Boolean.
     // 🧠 The methods also return one of these two strings: "You turned the bulb ON", or "You turned the bulb OFF".
     class Bulb {
+      constructor() {
+        this.isOn = false;
+      }
 
+      turnOn() {
+        if(!this.itOn) {
+          this.isOn = true;
+          return 'You turned the bulb ON'
+        } 
+      }
+
+      turnOff() {
+        if (this.isOn) {
+          this.isOn = false;
+          return 'You turned the bulb OFF'
+        }
+      }
+
+      toggle() {
+      this.isOn = !this.isOn;
+      return this.isOn ? "You turned the bulb ON" : "You turned the bulb OFF";
+  }
     }
 
     // 👉 CHALLENGE 4
@@ -92,7 +113,23 @@
     //   minusThree.count() // returns null
     //   minusThree.count() // returns null
     class CountDown {
+      constructor(initialCount) {
+        this.initialCount = initialCount;
+        this.currentCount = initialCount;
+      }
 
+      count() {
+        if(this.currentCount > 0) {
+          const CountdownString = `${this.currentCount}!`
+          this.currentCount -= 1;
+          return CountdownString;
+        } if (this.currentCount === 0) {
+          this.currentCount -= 1;
+          return 'Liftoff!'
+        } else {
+          return null;
+        }
+      }
     }
 
     // 🧪 TESTS, do not work below this line
